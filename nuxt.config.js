@@ -31,6 +31,12 @@ export default {
         content: SITE_INFO.sitedescription || process.env.npm_package_description || ''
       }
     ],
+    script: [
+      {
+        src: "https://cdn-3.convertexperiments.com/js/10035696-10033645.js",
+        body: true,
+      },
+    ],
     link: [
       {
         rel: 'preconnect',
