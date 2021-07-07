@@ -1,8 +1,10 @@
+/*
 @import './_vars.pcss';
 @import './_transitions.pcss';
 @import './_globals.pcss';
 
 /* @layer base START */
+/*
 @import './_typography.pcss';
 @import './_forms.pcss';
 @import './_grid.pcss';
@@ -10,10 +12,12 @@
 /* @layer base END */
 
 /* @layer components START */
-@import './_btns.pcss';
+/*@import './_btns.pcss';
 /* @layer components END */
-
+/*
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 /* If you need to let Tailwind classes overwrite your own classes, they need to be beneath this */
+@import './_typography.pcss';
+@import './_cards.pcss';

@@ -1,5 +1,5 @@
-site_url: https://ntn-boilerplate.netlify.app/
-logo_url: https://ntn-boilerplate.netlify.app/icon.png
+site_url: http://localhost:3000/
+logo_url: http://localhost:3000/icon.png
 
 publish_mode: editorial_workflow
 backend:
@@ -48,7 +48,7 @@ collections:
     # editor:
     #   preview: true
     fields:
-      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: "YYYY-MM-DD", time_format: false }
+      - { label: 'Created Date', name: 'createdAt', widget: 'datetime', date_format: 'YYYY-MM-DD', time_format: false }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }
       - { label: 'Body', name: 'body', widget: 'markdown', required: false }
@@ -67,6 +67,101 @@ collections:
           widget: 'select',
           default: 'animals',
           options: [{ label: 'Animals', value: 'animals' }, { label: 'Food', value: 'food' }],
+        }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
+      - { label: 'Description', name: 'description', widget: 'string', required: false }
+      - { label: 'Cover Image', name: 'cover', widget: 'image', required: false, allow_multiple: false }
+      - { label: 'Content', name: 'body', widget: 'markdown', required: false }
+      - {
+          label: 'Gallery',
+          name: 'gallery',
+          widget: 'list',
+          required: false,
+          summary: '{{fields.image}}',
+          field: { label: 'Image', name: 'image', widget: 'image' },
+        }
+  - name: conference
+    label: Conference
+    filter: { field: type, value: conference }
+    folder: /
+    create: true
+    identifier_field: year
+    fields:
+      - { name: year, label: Year, widget: number, min: 2016, max: 2100 }
+      - { name: body, label: Body, widget: markdown }
+      - { name: theme, label: Theme }
+      - { name: tagline, label: Tagline }
+      - name: map_url
+        label: 'Map URL'
+        default: https://www.google.com/maps/place/St.+Jude+Church/@43.1663474,-77.7404722,17z/data=!4m8!1m2!3m1!2sSt.+Jude+Church!3m4!1s0x89d6b2873cfafb47:0x8cb7c6cd2e16ecce!8m2!3d43.1663473!4d-77.7382781
+      - name: register_url
+        label: 'Registration URL'
+      - name: speakers
+        label: Speakers
+        widget: list
+        optional: true
+        fields:
+          - { name: name, label: Name }
+          - { name: image, label: Image, widget: image }
+          - { name: descriptionMarkdown, label: Description, widget: markdown }
+      #- name: promos
+      #optional: true
+      #widget: list
+      #fields:
+      #- { name: name, label: Name }
+      - name: agenda
+        optional: true
+        widget: list
+        fields:
+          - { name: start, label: Start }
+          - { name: end, label: End }
+          - { name: lines_markdown, label: 'Lines', widget: markdown }
+  - name: page
+    label: Page
+    folder: /
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: title, label: Title }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
+  - name: integrations
+    label: 'Integrations'
+    label_singular: 'Intergration'
+    folder: 'content/integration'
+    create: true
+    format: 'frontmatter'
+    slug: '{{slug}}'
+    preview_path: 'integration/{{slug}}'
+    fields:
+      - {
+          label: 'Integration Category',
+          name: 'category',
+          widget: 'select',
+          default: 'crm',
+          allow_multiple: true,
+          options:
+            [
+              { label: 'CRM', value: 'crm' },
+              { label: 'Storage', value: 'storage' },
+              { label: 'Productivity', value: 'Productivity' },
+              { label: 'Marketing', value: 'Marketing' },
+              { label: 'Finance', value: 'Finance' },
+            ],
+        }
+      - {
+          label: 'Integration For',
+          name: 'for',
+          widget: 'select',
+          default: 'crm',
+          allow_multiple: true,
+          options:
+            [
+              { label: 'Sales Team', value: 'sales' },
+              { label: 'Marketing Team', value: 'marketing' },
+              { label: 'Finance Team', value: 'finance' },
+              { label: 'Legal Team', value: 'legal' },
+            ],
         }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - { label: 'Description', name: 'description', widget: 'string', required: false }

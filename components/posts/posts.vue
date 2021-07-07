@@ -60,7 +60,7 @@
       amount: { // ? https://content.nuxtjs.org/fetching#limitn
         type: Number,
         default: 10,
-        validator: (val) => val >= 0 && val < 100,
+        validator: (val) => val >= 0 && val <= 100,
       },
       sortBy: { // ? https://content.nuxtjs.org/fetching#sortbykey-direction
         type: Object,

@@ -47,6 +47,12 @@ export default {
         href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap',
         media: 'print',
         onload: `this.media='all'`
+      },
+      {
+        rel: 'stylesheet',
+        href: 'http://144.91.76.235/Docux-website/public/assets/css/main.css',
+        media: 'print',
+        onload: `this.media='all'`
       }
     ], // ? Imports the font 'Inter', can be optimized by the netlify plugin 'Subfont' by uncommenting it in `netlify.toml`
     noscript: [
@@ -64,7 +70,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['@/assets/css/main.pcss'],
+  css: ['@/assets/css/main.pcss' ],
   /*
    ** Plugins to load before mounting the App
    */
