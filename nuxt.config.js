@@ -56,7 +56,7 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'http://144.91.76.235/Docux-website/public/assets/css/main.css',
+        href: 'https://144.91.76.235/Docux-website/public/assets/css/main.css',
         media: 'print',
         onload: `this.media='all'`
       }
